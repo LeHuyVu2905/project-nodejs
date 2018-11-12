@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Transfer</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+</head>
+<body>
+    <% include ../header%>
+
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-xs-12 col-sm-9">
+                <br />
+            <div class="jumbotron">
+                <h1>Transfer</h1>
+                
+                <% if (errors){ %>
+                    <% errors.forEach(function(error){ %>
+                        <div class="alert alert-danger"><%= error %></div>
+                    <% }); %>
+                <% } %>
+
+                <form action="/transfer" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="formGroupExampleInputSerial">Serial</label>
+                        <input name="serial" type="text" class="form-control" id="formGroupExampleInputSerial" placeholder="Serial" value="<%= values ? values.serial : "" %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInputAmount">Amount</label>
+                        <input name="amount" type="number" class="form-control" id="formGroupExampleInputAmount" placeholder="Amount" value="<%= values ? values.amount : "" %>">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Transfer</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+                
+        </div>
+        <% include ../footer%>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
